@@ -1,0 +1,217 @@
+body{
+  background-color: black;
+}
+main{
+  background-image: url(../imgs/Casino-Nucamp-Logo.jfif) ;
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: red;
+  min-width: 200px;
+  min-height: 200px;
+  height:100vh;
+  
+}
+
+.form-label{
+  font-weight: medium;
+}
+.transparent-box{
+  /* display: inline-block; */
+  background-color: rgba(0,0,0,.5);
+  border-radius: 25px;
+  margin: 1vw;
+  padding: 1vw;
+  
+}
+.transparent-bar {
+  background:linear-gradient(to bottom,rgba(0,0,0,.8),rgba(0,0,0,0)); 
+  margin:0px;
+  border: 1px;
+  padding: 1px;
+}
+
+.transparent-bar-nav {
+  background: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,.8),rgba(0,0,0,.1)); 
+  margin:0px;
+  border: 1px;
+  padding: 1px;
+}
+.firstPagePlayingTable {
+  height: 80vw;
+}
+
+/* --------- */
+h2 {
+    color: rgb(216, 227, 253);
+    border: 1px;
+    font-weight: bold;
+}
+.dealerPart h2{
+  margin-left: 220px;
+  margin-top: 70px;
+}
+
+.main-title{
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  color: rgb(238, 231, 221);
+}
+.navbar-setting{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  transition: ease-in 0.5s;
+}
+.navbar-setting.start{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  transform: translateX(-100%);
+  transition: ease-in 0.5s;
+}
+.setting{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  transition: ease-in 0.5s;
+}
+.setting.menu{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  transform: translateX(-150%);
+  transition: ease-in 0.5s;
+}
+.firstPageButton{
+  cursor: pointer;
+  width: 150px;
+  border-radius: 5px;
+  opacity: 70%;
+  height: 35px;
+}
+#first{
+  margin-left: 15px;
+}
+#second{
+  margin-left: 30px;
+
+}
+#third{
+  margin-left: 40px;
+}
+#lets-start{
+  margin-left: 50px;
+}
+#back{
+  margin-left: 60px;
+}
+
+.card {
+    height: 100px;
+    max-width: 200px;
+    color:transparent !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.startMainGame {
+  transition: ease-in 0.5s;
+}
+.startMainGame.hide{
+  z-index: -2;
+  transition: ease-in 0.5s;
+}
+.playerChoices{
+  position: absolute;
+  position: absolute;
+  /* z-index: -2; */
+  transition: linear 0.5s;
+}
+.playerChoices.show{
+  z-index: 0;
+  transition: linear 0.5s;
+}
+/* dealer part */
+.cardDealer{
+  margin-top: 100px;
+  margin-bottom: 0px;
+}
+.dealerPart{
+  display: flex;
+  max-width: 600px;
+  position: absolute;
+  top: 0px;
+  left: 33.5%;
+}
+/* players part */
+.playerPart{
+  position: absolute;
+  left: 50px;
+  top: 300px;
+  width: 80%;
+  margin-left: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.playersArea{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 40px;
+}
+.playerCard{
+  margin-top: 20px;
+  position: absolute;
+  top: 60px;
+}
+.newCardPlayer{
+  position: absolute;
+  top: 50px;
+}
+.playerPart h2{
+  margin-top: 0px;
+  position: absolute;
+  top: 0px;
+}
+.playersArea h3{
+  color: brown;
+  font-weight: 800;
+}
+
+/*   Uncomment these to make it invisible so we can use the image on the page to press the button. I know it's weird but it works
+.card:hover {
+    box-shadow: 0 32px 32px 0 rgba(0,0,0,0.2);
+}
+.btn-circle.btn-xl {
+    width: 170px;
+    height: 170px;
+    padding: 13px 18px;
+    font-size: 15px;
+    text-align: center;
+    background-color: transparent;
+    font-weight: bold;
+    opacity: 0;
+    
+  } */
+
+  

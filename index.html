@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- <meta name="google-signin-client_id"
+    content="210160089616-hnsdtul6tuin6199t3qpjkpe0tnheftn.apps.googleusercontent.com"> -->
+
+  <title>Casino - Homepage </title>
+
+  <!-- Bootstrap stylesheet CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+    integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+
+  <!--Font Awesome CDN library-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- For debugging --><!--Adds borders for visualization-->
+  <!-- <link rel="stylesheet" href="./css/bootstrap-borders-styles.css"/> -->
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+
+
+  <header>
+    <div class="container-fluid transparent-bar-nav">
+    </div>
+
+  </header>
+
+  <main>
+    <div class="container-fluid transparent-box">
+      <div class="row text-center">
+        <div class="col">
+          <h1>Welcome to the Casino:</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 align-self-center mx-auto transparent-box">
+          <div class="text-center" id="saveName">
+            <label class="form-label" for="userName">What should we call you?<br>(Enter up to 10 characters)</label>
+            <input class="form-control" type="text" id="userName">
+            <button onclick="saveMyName()" class="btn btn-info py-1">Enter</button>
+          </div>
+          <div class="text-center d-none" id="changeName">
+            <label class=" col form-label" for="renameButton" id="welcomeText">Welcome</label>
+            <button onclick="reEnter()" class="form-control btn btn-info py-1" id="renameButton">Change Name</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <h2 class="main-title">Select a game to play</h2>
+
+          <div class="firstPagePlayingTable">
+            <div class="row text-center justify-content-center">
+              <div class="col">
+                <a class="btn btn-dark" onclick="startBlackJack()">Blackjack</a>
+
+              </div>
+            </div>
+            <!-- <div class="navbar-setting">
+              <button id="first" class="firstPageButton" onclick="openSettingtoStart()">Start</button>
+            </div>
+            <div class="setting menu">
+              <button id="second" class="firstPageButton">first setting</button>
+              <button id="third" class="firstPageButton">second setting</button>
+              <a href="./blackjack.html">
+                <button id="lets-start" class="firstPageButton">Let's Start</button> </a>
+              <button id="back" class="firstPageButton" onclick="backToFirstPage()">Back</button>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- <div id="root"> </div>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
+
+
+  <!-- Bootstrap javascript CDN -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <script src="./jsfolder/main.js"></script>
+  <script src="jsfolder/global.js"></script>
+
+  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+</body>
+
+</html>

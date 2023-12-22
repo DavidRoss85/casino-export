@@ -1,0 +1,47 @@
+/* My borders showing different div */
+.col, div[class^="col-"], label[class^="col-"] {
+    border: 1px solid red;
+    /* margin: 2px;  */
+    
+  } 
+  
+  .row {
+    border: 3px solid blue;
+    /* padding: 2px;
+    margin: 5px;
+    padding: 50px; */
+  }
+  
+  .container, .container-fluid {
+    border: 4px solid green;
+    /* padding: 2px;
+    margin: 5px;     */
+  }
+  
+  .media {
+    border: 3px solid yellow;
+    /* padding: 2px;
+    margin: 5px;        */
+  }  
+  
+  .card {
+    border: 3px solid purple;
+    /* padding: 2px;
+    margin: 5px;     */
+  }
+  
+  .orange-border {
+  
+    border: 1px solid orange;
+  
+  } 
+  a {
+    border: 1px solid orange;
+  }
+
+  li{
+    border: 1px solid white;
+  }
+  .carousel {
+    border: 2px solid orange;
+  }
