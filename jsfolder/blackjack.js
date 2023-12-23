@@ -655,7 +655,7 @@ function updateLabels() {
       scoreLabel[i].textContent = `Score: ${calculateScore(currentPlayer[i])}`
       moneyLabel[i].textContent = `$${currentPlayer[i].money}`
       nameLabel[i].textContent = `${currentPlayer[i].name}:`
-      tableNameLabel[i].textContent = `${currentPlayer[i].name}:`
+      tableNameLabel[i].textContent = `${currentPlayer[i].name}: ${calculateScore(currentPlayer[i])}`
 
     } catch (e) {
 
