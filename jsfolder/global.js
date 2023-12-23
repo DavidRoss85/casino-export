@@ -10,6 +10,7 @@ function loadUserData() {
       musicVolume = localStorage.getItem("musicVolume");
       noiseVolume = localStorage.getItem("noiseVolume");
       effectsVolume = localStorage.getItem("effectsVolume");
+      isLoggedIn = localStorage.getItem("loggedIn");
   
       if (!loadedName) loadedName = "Player";
       if (!audioOn) audioOn = true;
@@ -23,7 +24,7 @@ function loadUserData() {
     }
   }
   
- async function saveUserData() {
+ async function saveUserData(login = false) {
     try{
       const saveName = loadedName;
       if (saveName) localStorage.setItem("userName",saveName)
@@ -31,6 +32,7 @@ function loadUserData() {
       localStorage.setItem("musicVolume",musicVolume);
       localStorage.setItem("noiseVolume",noiseVolume);
       localStorage.setItem("effectsVolume",effectsVolume);
+      localStorage.setItem("loggedIn",login)
       
     }catch(e){
       console.log("Error saving user data: " + e)

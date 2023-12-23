@@ -53,6 +53,7 @@ class GameTable{
         this.deckId = deckId;
         this.moneyPot = 0;
         this.currentRound = 0;
+        this.isActive = false;
     }
 
 }

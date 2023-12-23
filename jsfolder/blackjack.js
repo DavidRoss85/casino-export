@@ -1,5 +1,6 @@
 //Note: The rest of the event listners are listed inside enableButtons()/disableButtons()//
-window.addEventListener("load", loadAssets);
+// window.addEventListener("load", loadAssets);
+window.onpageshow = ()=>loadAssets();
 window.addEventListener("resize", adjustCardSize);
 
 musicSlider.addEventListener("change", playerAdjustVolume);
@@ -10,6 +11,8 @@ effectsSlider.addEventListener("change", playerAdjustVolume);
 //Execution starts HERE:
 async function loadAssets() {
   loadUserData();
+  cleanupCards(); //Temporary fix in case user hits the back button ;)
+  saveUserData(false);
   adjustCardSize();
   loadSounds();
   showMessage(chooseDealerHTML, (()=>{ dealerIdentity = "Male-Dealer";beginInteraction()}), (()=>{ dealerIdentity = "Female-Dealer";beginInteraction()}), 80,-1,"chooseOne");
@@ -77,7 +80,7 @@ function beginInteraction() {
   playSound("backgroundNoise", true, 0, noiseVolume);
 
   //Immediately start game:
-  startButton.click();
+  startButton.click(); //go to function gameStart()
 }
 
 //This function is called when player stays or busts
@@ -381,17 +384,28 @@ function onSignIn(googleUser) {
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
-//New Game
-function playAgain() {
-
-  //window.location.reload();
-  disableButtons()
+function cleanupCards(){
+  if(!currentTable.isActive) return;
   shuffleCurrentDeck(currentTable.deckId, true);
   for (i = 0; i <= currentTable.numPlayers; i++) {
     clearTable(i);
     currentPlayer[i].clearLocalHand();
     // currentPlayer[i].score = calculateScore(currentPlayer[i]);
   }
+
+}
+//New Game
+function playAgain() {
+
+  //window.location.reload();
+  disableButtons()
+  cleanupCards();
+  // shuffleCurrentDeck(currentTable.deckId, true);
+  // for (i = 0; i <= currentTable.numPlayers; i++) {
+  //   clearTable(i);
+  //   currentPlayer[i].clearLocalHand();
+  //   // currentPlayer[i].score = calculateScore(currentPlayer[i]);
+  // }
   setTable(currentTable.numPlayers, 1, false);
   enableButtons();
 }
@@ -476,7 +490,7 @@ async function redrawPlayerHand(playerIndex, numToAnimate = 0) {
 
 //go back to main page
 function returnToHomeScreen() {
-  showMessage("Thank you for playing Blackjack!", () =>{window.location.href = "./index.html";saveUserData() }, doNothing, 60);
+  showMessage("Thank you for playing Blackjack!", () =>{window.location.href = "./index.html";saveUserData(false) }, doNothing, 60);
 }
 
 function reset() {
@@ -517,6 +531,7 @@ async function setTable(numPlayers, numDecks, newDeck = true) {
   } else {
     await shuffleCurrentDeck(currentTable.deckId);
   }
+  currentTable.isActive=true;
   currentTable.numPlayers = numPlayers; // Set the number of players
 
   //Since dealer plays, Player 0 will always be set as dealer

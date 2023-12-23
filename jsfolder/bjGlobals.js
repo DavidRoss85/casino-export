@@ -39,6 +39,7 @@ for (let i = 1; i < 6; i++) {
   Object.seal(currentPlayer[i]);//prevents mutation of object properties but allows value changes
 }
 
+let isLoggedIn = false;
 let loadedName = "Player";
 let cardScale = .8;
 let timeToRedraw = true;

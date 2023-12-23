@@ -13,6 +13,7 @@ let musicVolume = 1;
 let noiseVolume = 1;
 let effectsVolume = 1;
 let loadedName = "Player";
+let isLoggedIn = false;
 
 function openSettingtoStart() {
     document.querySelector(".navbar-setting").classList.toggle("start");
@@ -55,6 +56,6 @@ function openSettingtoStart() {
   }
 
   function startBlackJack(){
-    saveUserData();
+    saveUserData(true);
     window.location.href = "./blackjack.html"
   }
