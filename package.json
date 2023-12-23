@@ -1,0 +1,21 @@
+{
+  "name": "nucamp-casino",
+  "version": "1.0.0",
+  "description": "This was made as part of a portfolio project for Nucamp bootcamp.",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel --open",
+    "build": "parcel build --no-optimize",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Ross, Zach Beecher, Nahal Abbie",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "bootstrap": "^5.3.2"
+  }
+}
