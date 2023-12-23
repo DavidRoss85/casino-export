@@ -1,6 +1,8 @@
-# casino-project
-Nucamp bootcamp - Nahal, David Ross, Zach Beecher build blackjack with JS, Bootstrap, CSS, API (deck of cards)
+# Casino project started by Zach Beecher, David Ross and Nahal Abbie
+This was made as part of a portfolio project for Nucamp bootcamp.
 
-# We will be working with the deck of cards API https://www.deckofcardsapi.com/
+The deck of cards API https://www.deckofcardsapi.com/ was used to handle card shuffling and images.
 
-# Technology used: Javascript, HTML5, Bootstrap, CSS
+Technology used: Javascript, HTML5, Bootstrap, CSS
+
+This version is an attempt to modify the code for independent deployment on firebase.
