@@ -1,6 +1,6 @@
 //Note: The rest of the event listners are listed inside enableButtons()/disableButtons()//
 // window.addEventListener("load", loadAssets);
-window.onpageshow = ()=>loadAssets();
+window.onpageshow = () => loadAssets();
 window.addEventListener("resize", adjustCardSize);
 
 musicSlider.addEventListener("change", playerAdjustVolume);
@@ -15,7 +15,7 @@ async function loadAssets() {
   saveUserData(false);
   adjustCardSize();
   loadSounds();
-  showMessage(chooseDealerHTML, (()=>{ dealerIdentity = "Male-Dealer";beginInteraction()}), (()=>{ dealerIdentity = "Female-Dealer";beginInteraction()}), 80,-1,"chooseOne");
+  showMessage(chooseDealerHTML, (() => { dealerIdentity = "Male-Dealer"; beginInteraction() }), (() => { dealerIdentity = "Female-Dealer"; beginInteraction() }), 80, -1, "chooseOne");
   enableButtons() //Need a more precise way to control user clicks to stop breaking from click spamming
   musicVolume = .1;
 
@@ -69,6 +69,26 @@ function adjustVolume(itemId = "sound", vol = 1) {
 
 }
 
+//winnerArray is an array of player indexes. '0' is dealer
+function awardWinnings(winnerArray = [], multiplier = 2) {
+  console.log('Awarding winnings: ', currentTable.moneyPot);
+  if (winnerArray.length > 0) {
+    //For each player that wins, return double their bet.
+    for (playerNumber of winnerArray) {
+      currentPlayer[playerNumber].money = currentPlayer[playerNumber].money + (multiplier * currentPlayer[playerNumber].bet);
+      currentTable.moneyPot -= currentPlayer[playerNumber].bet;
+    };
+  };
+  //Zero out bets:
+  for (player of currentPlayer) {
+    player.bet = 0;
+  }
+  //Give remainder to dealer and zero out pot:
+  currentPlayer[0].money = currentPlayer[0].money + currentTable.moneyPot;
+  currentTable.moneyPot = 0;
+
+}
+
 //User has interacted with the window.
 //This is here because some browsers will block  ome functionality unless user
 //interacts with the window.
@@ -88,6 +108,8 @@ async function blackjackDealerAI(data, autoLose = false) {
   disableButtons()
 
   const thisDealer = currentPlayer[0];
+  let winnerArray = [1];
+
   await revealPlayerHand(0);
   thisDealer.score = calculateScore(thisDealer);
   currentPlayer[1].score = calculateScore(currentPlayer[1]);
@@ -98,6 +120,7 @@ async function blackjackDealerAI(data, autoLose = false) {
 
   if (autoLose) {
     await sleep(1000); //wait a sec
+    awardWinnings(); //Give dealer all the money
     showMessage(`${dealerWinsMessageHTML}${scoreText}`,
       playAgain, returnToHomeScreen, 80, -1, "YesNo");
     enableButtons();
@@ -118,21 +141,25 @@ async function blackjackDealerAI(data, autoLose = false) {
   switch (true) {
     case (thisDealer.score > DEFAULT_MAX_SCORE):
       //Dealer goes over:
+      awardWinnings(winnerArray); //Award player money
       showMessage(`${dealerLossMessageHTML}${scoreText}`,
         playAgain, returnToHomeScreen, 80, -1, "YesNo");
       break;
     case (thisDealer.score > currentPlayer[1].score):
       //Dealer beats player:
+      awardWinnings(); //Give dealer all the money
       showMessage(`${dealerWinsMessageHTML}${scoreText}`,
         playAgain, returnToHomeScreen, 80, -1, "YesNo");
       break;
     case (thisDealer.score === currentPlayer[1].score):
       //It's a tie!!
+      awardWinnings(winnerArray, 1); //Return money to player
       showMessage(`Push.${dealerPushMessageHTML}${scoreText}`,
         playAgain, returnToHomeScreen, 80, -1, "YesNo");
       break;
     case (thisDealer.score < currentPlayer[1].score):
       //Player scores higher:
+      awardWinnings(winnerArray); //Award player money
       showMessage(`${dealerLossMessageHTML}${scoreText}`,
         playAgain, returnToHomeScreen, 80, -1, "YesNo");
   }
@@ -384,8 +411,8 @@ function onSignIn(googleUser) {
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
-function cleanupCards(){
-  if(!currentTable.isActive) return;
+function cleanupCards() {
+  if (!currentTable.isActive) return;
   shuffleCurrentDeck(currentTable.deckId, true);
   for (i = 0; i <= currentTable.numPlayers; i++) {
     clearTable(i);
@@ -490,7 +517,7 @@ async function redrawPlayerHand(playerIndex, numToAnimate = 0) {
 
 //go back to main page
 function returnToHomeScreen() {
-  showMessage("Thank you for playing Blackjack!", () =>{window.location.href = "./index.html";saveUserData(false) }, doNothing, 60);
+  showMessage("Thank you for playing Blackjack!", () => { window.location.href = "./index.html"; saveUserData(false) }, doNothing, 60);
 }
 
 function reset() {
@@ -531,7 +558,7 @@ async function setTable(numPlayers, numDecks, newDeck = true) {
   } else {
     await shuffleCurrentDeck(currentTable.deckId);
   }
-  currentTable.isActive=true;
+  currentTable.isActive = true;
   currentTable.numPlayers = numPlayers; // Set the number of players
 
   //Since dealer plays, Player 0 will always be set as dealer
