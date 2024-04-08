@@ -17,7 +17,7 @@ async function loadAssets() {
   loadSounds();
   showMessage(chooseDealerHTML, (() => { dealerIdentity = "Male-Dealer"; beginInteraction() }), (() => { dealerIdentity = "Female-Dealer"; beginInteraction() }), 80, -1, "chooseOne");
   enableButtons() //Need a more precise way to control user clicks to stop breaking from click spamming
-  musicVolume = .1;
+  // musicVolume = .1;
 
 }
 //---------------------------------------------------------------//

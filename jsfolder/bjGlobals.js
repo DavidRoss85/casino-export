@@ -44,9 +44,9 @@ let loadedName = "Player";
 let cardScale = .8;
 let timeToRedraw = true;
 let audioOn = true;
-let musicVolume = .2;
-let noiseVolume = 1;
-let effectsVolume = 1;
+let musicVolume = .05;
+let noiseVolume = .25;
+let effectsVolume = .25;
 let dealerIdentity = "Male-Dealer";
 
 let welcomeMessageHTML = "";

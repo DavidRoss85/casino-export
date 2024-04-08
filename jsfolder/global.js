@@ -14,9 +14,9 @@ function loadUserData() {
   
       if (!loadedName) loadedName = "Player";
       if (!audioOn) audioOn = true;
-      if (!musicVolume) musicVolume = .5;
-      if (!noiseVolume) noiseVolume = 1;
-      if (!effectsVolume) effectsVolume  = 1;
+      if (!musicVolume) musicVolume = .025;
+      if (!noiseVolume) noiseVolume = 0.25;
+      if (!effectsVolume) effectsVolume  = 0.25;
   
   
     }catch(e){

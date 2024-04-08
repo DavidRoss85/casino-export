@@ -9,9 +9,9 @@ inputBox.addEventListener("keyup",limitNameLength);
 
 
 let audioOn = true;
-let musicVolume = 1;
-let noiseVolume = 1;
-let effectsVolume = 1;
+let musicVolume = .05;
+let noiseVolume = .25;
+let effectsVolume = .5;
 let loadedName = "Player";
 let isLoggedIn = false;
 
